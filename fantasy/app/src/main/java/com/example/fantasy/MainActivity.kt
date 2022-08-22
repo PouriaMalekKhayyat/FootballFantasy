@@ -41,18 +41,27 @@ class MainActivity : androidx.activity.ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Column() {
+            Column {
                 Header()
 
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(16.dp))
+
+                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+                    NavBar()
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
 
                 CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
                     Date_and_Week()
                 }
+
+                //Spacer(modifier = Modifier.height(16.dp))
+
+                SelectLayoutComponent()
             }
         }
     }
-
 }
 
 
